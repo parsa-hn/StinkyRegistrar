@@ -17,8 +17,8 @@ public class Student {
 		this.currentSemesterCourses = new ArrayList<>();
 	}
 	
-	public void takeCourse(Course c, int section) {
-		currentSemesterCourses.add(new OfferedCourse(c, section));
+	public void takeCourse(Course course, int section) {
+		currentSemesterCourses.add(new OfferedCourse(course, section));
 	}
 
 	public Map<Term, Map<Course, Double>> getTranscript() {
@@ -42,7 +42,8 @@ public class Student {
 	public String getName() {
 		return name;
 	}
-	
+
+	@Override
 	public String toString() {
 		return name;
 	}
