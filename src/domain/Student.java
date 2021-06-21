@@ -8,26 +8,17 @@ public class Student {
 	private final String id;
 	private final String name;
 	private final Map<Term, Map<Course, Double>> transcript;
-	private final List<CourseSection> currentTerm;
-
-	static class CourseSection {
-        CourseSection(Course course, int section) {
-            this.course = course;
-            this.section = section;
-        }
-        Course course;
-	    int section;
-    }
+	private final List<OfferedCourse> currentSemesterCourses;
 
 	public Student(String id, String name) {
 		this.id = id;
 		this.name = name;
 		this.transcript = new HashMap<>();
-		this.currentTerm = new ArrayList<>();
+		this.currentSemesterCourses = new ArrayList<>();
 	}
 	
 	public void takeCourse(Course c, int section) {
-		currentTerm.add(new CourseSection(c, section));
+		currentSemesterCourses.add(new OfferedCourse(c, section));
 	}
 
 	public Map<Term, Map<Course, Double>> getTranscript() {
@@ -40,8 +31,8 @@ public class Student {
 	    transcript.get(term).put(course, grade);
     }
 
-    public List<CourseSection> getCurrentTerm() {
-        return currentTerm;
+    public List<OfferedCourse> getCurrentSemesterCourses() {
+        return currentSemesterCourses;
     }
 
     public String getId() {

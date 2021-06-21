@@ -21,6 +21,12 @@ public class OfferedCourse {
         this.examDate = examDate;
     }
 
+    public OfferedCourse(Course course, int section) {
+        this.course = course;
+        this.section = section;
+        this.examDate = null;
+    }
+
     public OfferedCourse(Course course, Date examDate, int section) {
         this.course = course;
         this.section = section;
