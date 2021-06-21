@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 public class Student {
-	private String id;
-	private String name;
+	private final String id;
+	private final String name;
+	private final Map<Term, Map<Course, Double>> transcript;
+	private final List<CourseSection> currentTerm;
 
 	static class CourseSection {
         CourseSection(Course course, int section) {
@@ -16,8 +18,6 @@ public class Student {
         Course course;
 	    int section;
     }
-	private Map<Term, Map<Course, Double>> transcript;
-	private List<CourseSection> currentTerm;
 
 	public Student(String id, String name) {
 		this.id = id;
