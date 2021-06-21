@@ -49,8 +49,10 @@ public class Course {
 		return id;
 	}
 
+	@Override
 	public boolean equals(Object obj) {
-		Course other = (Course)obj;
-		return id.equals(other.id);
+		if (!(obj instanceof Course))
+			return false;
+		return id.equals(((Course)obj).id);
 	}
 }
