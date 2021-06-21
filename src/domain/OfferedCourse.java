@@ -30,13 +30,14 @@ public class OfferedCourse {
 		return course;
 	}
 	
-	public String toString() {
-		return course.getName() + " - " + section;
-	}
-	
 	public Date getExamTime() {
 		return examDate;
 	}
 
 	public int getSection() { return section; }
+
+	@Override
+	public String toString() {
+		return course.getName() + " - " + section;
+	}
 }
