@@ -30,7 +30,7 @@ public class OfferedCourse {
 		return course;
 	}
 	
-	public Date getExamTime() {
+	public Date getExamDate() {
 		return examDate;
 	}
 
