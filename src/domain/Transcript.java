@@ -17,7 +17,7 @@ public class Transcript {
         }
     }
 
-    public void addRecord(Semester semester, Course course, double grade) {
+    public void addRecord(Course course, Semester semester, double grade) {
         this.semesterTranscripts.putIfAbsent(semester, new SemesterTranscript());
         this.semesterTranscripts.get(semester).addRecord(course, grade);
     }

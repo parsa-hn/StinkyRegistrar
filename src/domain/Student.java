@@ -77,4 +77,8 @@ public class Student {
         }
         return totalUnits;
     }
+
+    public void addTranscriptRecord(Course course, Semester semester, double grade) {
+        transcript.addRecord(course, semester, grade);
+    }
 }

@@ -59,8 +59,8 @@ public class EnrollCtrlTest {
 
 	private boolean hasTaken(Student s, Course...courses) {
 	    Set<Course> coursesTaken = new HashSet<>();
-		for (Student.CourseSection cs : s.getCurrentSemesterCourses())
-				coursesTaken.add(cs.course);
+		for (OfferedCourse oc : s.getCurrentSemesterCourses())
+				coursesTaken.add(oc.getCourse());
 		for (Course course : courses) {
 			if (!coursesTaken.contains(course))
 				return false;
