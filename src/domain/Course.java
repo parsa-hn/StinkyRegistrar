@@ -24,11 +24,12 @@ public class Course {
 		return prerequisites;
 	}
 
+	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(name);
 		sb.append(" {");
-		for (Course pre : getPrerequisites()) {
+		for (Course pre : prerequisites) {
 			sb.append(pre.getName());
 			sb.append(", ");
 		}
