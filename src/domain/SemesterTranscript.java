@@ -1,17 +1,11 @@
 package domain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class SemesterTranscript {
     private Semester semester;
     private final List<TakenCourse> takenCourses;
-
-    SemesterTranscript(Semester semester, TakenCourse... takenCourses) {
-        this.semester = semester;
-        this.takenCourses = Arrays.asList(takenCourses);
-    }
 
     SemesterTranscript() {
         this.takenCourses = new ArrayList<>();

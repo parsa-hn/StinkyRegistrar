@@ -70,14 +70,6 @@ public class Student {
         return totalGradeSum / totalUnits;
     }
 
-    public int getCurrentSemesterTotalUnits() {
-        int totalUnits = 0;
-        for (OfferedCourse offeredCourse : currentSemesterCourses) {
-            totalUnits += offeredCourse.getCourse().getUnits();
-        }
-        return totalUnits;
-    }
-
     public void addTranscriptRecord(Course course, Semester semester, double grade) {
         transcript.addRecord(course, semester, grade);
     }

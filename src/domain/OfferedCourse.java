@@ -9,12 +9,6 @@ public class OfferedCourse {
 
     public static int DEFAULT_SECTION = 1;
 
-    public OfferedCourse(Course course) {
-        this.course = course;
-        this.section = DEFAULT_SECTION;
-        this.examDate = null;
-    }
-
     public OfferedCourse(Course course, Date examDate) {
         this.course = course;
         this.section = DEFAULT_SECTION;
@@ -25,12 +19,6 @@ public class OfferedCourse {
         this.course = course;
         this.section = section;
         this.examDate = null;
-    }
-
-    public OfferedCourse(Course course, Date examDate, int section) {
-        this.course = course;
-        this.section = section;
-        this.examDate = examDate;
     }
 
     public Course getCourse() {
