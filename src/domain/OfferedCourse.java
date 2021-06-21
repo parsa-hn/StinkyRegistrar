@@ -6,15 +6,17 @@ public class OfferedCourse {
 	private final int section;
 	private final Date examDate;
 
+	public static int DEFAULT_SECTION = 1;
+
 	public OfferedCourse(Course course) {
 		this.course = course;
-		this.section = 1;
+		this.section = DEFAULT_SECTION;
 		this.examDate = null;
 	}
 
 	public OfferedCourse(Course course, Date examDate) {
 		this.course = course;
-		this.section = 1;
+		this.section = DEFAULT_SECTION;
 		this.examDate = examDate;
 	}
 
