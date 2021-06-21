@@ -24,6 +24,16 @@ public class Course {
 		return prerequisites;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public int getUnits() { return units; }
+
+	public String getId() {
+		return id;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -37,22 +47,10 @@ public class Course {
 		return sb.toString();
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public int getUnits() {
-		return units;
-	}
-
-	public String getId() {
-		return id;
-	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof Course))
 			return false;
-		return id.equals(((Course)obj).id);
+		return id.equals(((Course)obj).getId());
 	}
 }
