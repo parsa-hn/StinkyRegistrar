@@ -3,7 +3,6 @@ package domain;
 import domain.exceptions.EnrollmentRulesViolationException;
 
 import java.util.List;
-import java.util.Map;
 
 public class EnrollController {
 
@@ -68,15 +67,14 @@ public class EnrollController {
 
     private void checkSemesterUnitsLimit(Student student, List<OfferedCourse> courses) throws EnrollmentRulesViolationException {
         double gpa = student.calculateGpa();
-        int unitsRequested = student.getCurrentSemesterTotalUnits();
+        int unitsRequested = 0;
+        for (OfferedCourse course : courses) unitsRequested += course.getCourse().getUnits();
 
-        for (OfferedCourse offeredCourse : courses) {
-            if ((gpa < Globals.C_GRADE_STUDENTS_MINIMUM_GPA && unitsRequested > Globals.C_GRADE_STUDENTS_MAXIMUM_UNITS_PER_SEMESTER)
-                    || (gpa < Globals.B_GRADE_STUDENTS_MINIMUM_GPA && unitsRequested > Globals.B_GRADE_STUDENTS_MAXIMUM_UNITS_PER_SEMESTER)
-                    || (unitsRequested > Globals.MAXIMUM_UNITS_PER_SEMESTER))
-                throw new EnrollmentRulesViolationException(
-                        String.format("Number of units (%d) requested does not match GPA of %f", unitsRequested, gpa)
-                );
-        }
+        if ((gpa < Globals.C_GRADE_STUDENTS_MINIMUM_GPA && unitsRequested > Globals.C_GRADE_STUDENTS_MAXIMUM_UNITS_PER_SEMESTER)
+                || (gpa < Globals.B_GRADE_STUDENTS_MINIMUM_GPA && unitsRequested > Globals.B_GRADE_STUDENTS_MAXIMUM_UNITS_PER_SEMESTER)
+                || (unitsRequested > Globals.MAXIMUM_UNITS_PER_SEMESTER))
+            throw new EnrollmentRulesViolationException(
+                    String.format("Number of units (%d) requested does not match GPA of %f", unitsRequested, gpa)
+            );
     }
 }
