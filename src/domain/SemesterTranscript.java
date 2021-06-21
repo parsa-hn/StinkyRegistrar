@@ -5,8 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SemesterTranscript {
-    Semester semester;
-    List<TakenCourse> takenCourses;
+    private Semester semester;
+    private final List<TakenCourse> takenCourses;
 
     SemesterTranscript(Semester semester, TakenCourse... takenCourses) {
         this.semester = semester;

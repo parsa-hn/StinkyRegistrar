@@ -13,7 +13,7 @@ public class Transcript {
 
     Transcript(List<SemesterTranscript> semesterTranscripts) {
         for (SemesterTranscript semesterTranscript : semesterTranscripts) {
-            this.semesterTranscripts.put(semesterTranscript.semester, semesterTranscript);
+            this.semesterTranscripts.put(semesterTranscript.getSemester(), semesterTranscript);
         }
     }
 
