@@ -5,16 +5,16 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class Term {
+public class Semester {
 	private String name;
 	private Date startDate;
 
-	public Term(String name) {
+	public Semester(String name) {
 		this.name = name;
 		this.startDate = null;
 	}
 
-	public Term(String name, Date startDate) {
+	public Semester(String name, Date startDate) {
 		this.name = name;
 		this.startDate = startDate;
 	}

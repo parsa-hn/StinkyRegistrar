@@ -7,9 +7,9 @@ import domain.exceptions.EnrollmentRulesViolationException;
 
 public class EnrollCtrl {
 	public void enroll(Student s, List<OfferedCourse> courses) throws EnrollmentRulesViolationException {
-        Map<Term, Map<Course, Double>> transcript = s.getTranscript();
+        Map<Semester, Map<Course, Double>> transcript = s.getTranscript();
 		for (OfferedCourse o : courses) {
-            for (Map.Entry<Term, Map<Course, Double>> tr : transcript.entrySet()) {
+            for (Map.Entry<Semester, Map<Course, Double>> tr : transcript.entrySet()) {
                 for (Map.Entry<Course, Double> r : tr.getValue().entrySet()) {
                     if (r.getKey().equals(o.getCourse()) && r.getValue() >= 10)
                         throw new EnrollmentRulesViolationException(String.format("The student has already passed %s", o.getCourse().getName()));
@@ -18,7 +18,7 @@ public class EnrollCtrl {
 			List<Course> prereqs = o.getCourse().getPrerequisites();
 			nextPre:
 			for (Course pre : prereqs) {
-                for (Map.Entry<Term, Map<Course, Double>> tr : transcript.entrySet()) {
+                for (Map.Entry<Semester, Map<Course, Double>> tr : transcript.entrySet()) {
                     for (Map.Entry<Course, Double> r : tr.getValue().entrySet()) {
                         if (r.getKey().equals(pre) && r.getValue() >= 10)
                             continue nextPre;
@@ -40,7 +40,7 @@ public class EnrollCtrl {
 			unitsRequested += o.getCourse().getUnits();
 		double points = 0;
 		int totalUnits = 0;
-        for (Map.Entry<Term, Map<Course, Double>> tr : transcript.entrySet()) {
+        for (Map.Entry<Semester, Map<Course, Double>> tr : transcript.entrySet()) {
             for (Map.Entry<Course, Double> r : tr.getValue().entrySet()) {
                 points += r.getValue() * r.getKey().getUnits();
                 totalUnits += r.getKey().getUnits();
